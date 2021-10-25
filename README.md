@@ -9,7 +9,7 @@ Simple blog concept with features such as:
 * pagination
 * factories for easy debugging
 
-Styling done with tailwindcss and inline javascript is provided by alpineJS.
+Styling done with TailwindCSS and inline javascript is provided by AlpineJS.
 The database is mysql
 
 ## todo
