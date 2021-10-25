@@ -40,7 +40,6 @@ Route::post('posts/{post:slug}/comments', [PostCommentsController::class, 'store
 /*   ); */
 /* })->name('category'); */
 
-
 // middleware to make the route only accessible to guests (default middlware made available by laravel), aka users who are not logged in
 Route::get('register', [RegisterController::class, 'create'])->middleware('guest');
 Route::post('register', [RegisterController::class, 'store'])->middleware('guest');
