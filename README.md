@@ -9,7 +9,7 @@ Simple responsive blog concept with features such as:
 * pagination
 * factories for easy debugging, with faked lorem ipsum text
 
-Styling done with TailwindCSS and inline javascript is provided by AlpineJS.
+Styling is done with TailwindCSS and inline javascript is provided by AlpineJS. Since backend was the focus I had no need for extensive custom css pages for every component, and went with the Laravel standard of Tailwind to define all the styling in the HTML pages themselves.
 The database is in mysql
 
 The goal of this project was the learn to work with Laravel. In doing so I always kept documentation at hand, while always striving to refactor my code to the perscriped standards. Lots of code is commented out for reference. Commented code has the same functionality but is replaced by adjacent, more modern solutions.
