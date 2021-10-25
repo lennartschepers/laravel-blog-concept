@@ -25,12 +25,13 @@ class PostFactory extends Factory
   public function definition()
   {
     // for the fake images i will use the unique user ids, since for testing purposes every user has one post
-    $user = User::factory()->create();
+
+    $image = $this->faker->randomElement([rand(0, 8)]);
     return [
-      'user_id' => $user,
+      'user_id' => User::factory()->create(),
       'category_id' => Category::factory(),
       'title' => $this->faker->sentence(),
-      'thumbnail' => 'thumbnails/fake/print_' . $user->id . '.jpeg',
+      'thumbnail' => 'thumbnails/fake/' . $image . '.jpg',
       'slug' => $this->faker->slug(),
       'excerpt' => '<p>' . implode('</p><p>', $this->faker->paragraphs(2)) . '</p>',
       'body' => '<p>' . implode('</p><p>', $this->faker->paragraphs(6)) . '</p>',
