@@ -13,6 +13,7 @@ Styling done with TailwindCSS and inline javascript is provided by AlpineJS.
 The database is in mysql
 
 The goal of this project was the learn to work with Laravel. In doing so I always kept documentation at hand, while always striving to refactor my code to the perscriped standards. Lots of code is commented out for reference. Commented code has the same functionality but is replaced by adjacent, more modern solutions.
+Most components of the website are aimed to be as modular as possible to avoid duplicated HTML-items. Models are set up to avoid n+1 SQL queries.
 
 ## Todo
 To expand this concept I would like to add pages such as a;
