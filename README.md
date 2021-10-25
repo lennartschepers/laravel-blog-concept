@@ -12,7 +12,7 @@ Simple responsive blog concept with features such as:
 Styling done with TailwindCSS and inline javascript is provided by AlpineJS.
 The database is in mysql
 
-## todo
+## Todo
 To expand this concept I would like to add pages such as a;
 * Dashboard page where users can manage their posts and edit / delete them
 * Newsletter subscription api integration (currently the subscription box is a blank field)
