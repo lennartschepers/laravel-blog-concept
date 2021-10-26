@@ -16,10 +16,14 @@ The goal of this project was the learn to work with Laravel. In doing so I alway
 Most components of the website are aimed to be as modular as possible to avoid duplicated HTML-items. Models are set up to avoid n+1 SQL queries.
 
 ## Todo
-To expand this concept I would like to add pages such as a;
-* Dashboard page where users can manage their posts and edit / delete them
+To expand this concept I would like to add pages such as:
+~~* Dashboard page where admins can manage posts and edit / delete them
 * Newsletter subscription api integration (currently the subscription box is a blank field)
 * Commenting to another comment specifically (indented)
+* create dashboard specifically for users and their own posts
+* create draft option, where posts are not yet published by default
+
+Update: I added a dashboard for admins where they can edit / delete every post. Deletion has no confirmation popup modal yet though.
 
 ![laravel1](https://user-images.githubusercontent.com/22600400/138628330-6aef7207-52c5-4c8a-af5a-dfd891d2ea5e.png)
 
