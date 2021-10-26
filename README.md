@@ -17,13 +17,14 @@ Most components of the website are aimed to be as modular as possible to avoid d
 
 ## Todo
 To expand this concept I would like to add pages such as:
-~~* Dashboard page where admins can manage posts and edit / delete them
+
+* <strike>Dashboard page where admins can manage posts and edit / delete them </strike>
 * Newsletter subscription api integration (currently the subscription box is a blank field)
 * Commenting to another comment specifically (indented)
 * create dashboard specifically for users and their own posts
 * create draft option, where posts are not yet published by default
 
-Update: I added a dashboard for admins where they can edit / delete every post. Deletion has no confirmation popup modal yet though.
+*Update:* I added a dashboard for admins where they can edit / delete every post. Deletion has no confirmation popup modal yet though.
 
 ![laravel1](https://user-images.githubusercontent.com/22600400/138628330-6aef7207-52c5-4c8a-af5a-dfd891d2ea5e.png)
 
