@@ -4,7 +4,7 @@
   <div class="py-6 px-5">
     <div>
       <!-- todo add image support in forms -->
-      <img src="{{ asset('storage/' . $post->thumbnail)}}" alt="Blog Post illustration" class="rounded-xl">
+      <img src="{{ asset('storage/' . $post->thumbnail)}}" alt="Blog Post illustration" class="rounded-xl w-full h-96 object-cover">
     </div>
 
     <div class="mt-8 flex flex-col justify-between">
@@ -35,7 +35,7 @@
           </div>
         </div>
 
-        <div>
+        <div class="flex-shrink-0">
           <a href="/posts/{{ $post->slug }}" class="transition-colors duration-300 text-xs font-semibold bg-gray-200 hover:bg-gray-300 rounded-full py-2 px-8">Read More</a>
         </div>
       </footer>
