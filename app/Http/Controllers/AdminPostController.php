@@ -26,14 +26,7 @@ class AdminPostController extends Controller
   public function store()
   {
     //validate the request
-    $attributes = request()->validate([
-      'title' => 'required',
-      'thumbnail' => 'required|image',
-      'slug' => ['required', Rule::unique('posts', 'slug')],
-      'excerpt' => 'required',
-      'body' => 'required',
-      'category_id' => ['required', Rule::exists('categories', 'id')],
-    ]);
+    $attributes = $this->validatePost();
     $attributes['user_id'] = auth()->id();
     $attributes['thumbnail'] = request()->file('thumbnail')->store('thumbnails');
     Post::create($attributes);
@@ -50,17 +43,9 @@ class AdminPostController extends Controller
   public function update(Post $post)
   {
     //validate the request
-    $attributes = request()->validate([
-      'title' => 'required',
-      'thumbnail' => 'image',
-      //slug still has to be unique, but can be the same as is saved right now
-      'slug' => ['required', Rule::unique('posts', 'slug')->ignore($post->id)],
-      'excerpt' => 'required',
-      'body' => 'required',
-      'category_id' => ['required', Rule::exists('categories', 'id')],
-    ]);
-
-    if (isset($attributes['thumbnail'])) {
+    $attributes = $this->validatePost($post);
+    // php8 solution
+    if ($attributes['thumbnail'] ?? false) {
       $attributes['thumbnail'] = request()->file('thumbnail')->store('thumbnails');
     }
     $post->update($attributes);
@@ -71,5 +56,22 @@ class AdminPostController extends Controller
   {
     $post->delete();
     return back()->with('success', 'Post Deleted');
+  }
+
+  // argument set to null if nothing is passed. protected since only other functions in this class or maybe children need to access it
+  protected function validatePost(?Post $post = null): array
+  {
+    // if $post is null, it is set to new Post()
+    $post ??= new Post();
+    return request()->validate([
+      'title' => 'required',
+      // if updating a post ($post already exists in db) then a thumbnail is not required
+      'thumbnail' => $post->exists ? ['image'] : ['required', 'image'],
+      //slug still has to be unique in case of update but ignore current post, in case of creating (store) new post, $post-> will not exist yet and thus will ignore null
+      'slug' => ['required', Rule::unique('posts', 'slug')->ignore($post->id)],
+      'excerpt' => 'required',
+      'body' => 'required',
+      'category_id' => ['required', Rule::exists('categories', 'id')],
+    ]);
   }
 }
